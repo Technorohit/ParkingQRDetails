@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>QR Generator</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+  <header>Adore Samriddhi</header>
+  <div class="card">
+    <h2>Generate QR Code</h2>
+    <form action="/generate" method="POST">
+      <input
+  type="text"
+  name="mobile"
+  placeholder="Mobile Number"
+  required
+  pattern="^[6-9][0-9]{9}$"
+  maxlength="10"
+  inputmode="numeric"
+  title="Enter a valid 10-digit mobile number starting with 6-9">
+
+      <input type="text" name="flat" placeholder="Flat Number" required>
+      <button type="submit">Generate</button>
+    </form>
+  </div>
+</body>
+<script>
+  document.querySelector('input[name="mobile"]').addEventListener('input', function(e) {
+    this.value = this.value.replace(/[^0-9]/g, '');
+  });
+</script>
+</html>
