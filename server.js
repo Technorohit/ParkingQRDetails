@@ -12,7 +12,7 @@ app.get("/", (req, res) => {
 
 app.post("/generate", async (req, res) => {
   const { mobile, flat } = req.body;
-  const qrUrl = `http://localhost:3000/view?mobile=${encodeURIComponent(
+  const qrUrl = `${req.protocol}://${req.get('host')}/view?mobile=${encodeURIComponent(
     mobile
   )}&flat=${encodeURIComponent(flat)}`;
 
